@@ -1,0 +1,18 @@
+class Solution:
+    def findOriginalArray(self, changed: List[int]) -> List[int]:
+        dic={}
+        ans=[]
+        if len(changed)%2 != 0:
+            return []
+        changed.sort(reverse=True)
+        for i in range(len(changed)):
+            if changed[i]*2 in dic:
+                ans.append(changed[i])
+                dic[changed[i]*2]-=1
+                if dic[changed[i]*2] == 0:
+                    del dic[changed[i]*2]
+            else:
+                dic[changed[i]] = dic.get(changed[i],0) + 1
+        return ans if len(ans)==len(changed)//2 else []
+    
+        
