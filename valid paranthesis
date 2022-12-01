@@ -1,0 +1,12 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        dic={')':'(','}':'{',']':'['}
+        arr=[]
+        for i in range(len(s)):
+            if arr and s[i] in dic and dic[s[i]]==arr[-1]:
+                arr.pop()
+            else:
+                arr.append(s[i])
+        if len(arr)==0:
+            return True
+        return False
