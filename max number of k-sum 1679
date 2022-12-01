@@ -1,0 +1,15 @@
+class Solution:
+    def maxOperations(self, nums: List[int], k: int) -> int:
+        cnt=0
+        dic={}
+        ans=[]
+        for i in range(len(nums)):
+            if k-nums[i] in dic:
+                ans.append(k-nums[i])
+                dic[k-nums[i]]-=1
+                if dic[k-nums[i]]==0:
+                    del dic[k-nums[i]]
+            else: 
+                dic[nums[i]] = dic.get(nums[i],0) + 1
+        return len(ans)
+        
