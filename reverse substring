@@ -1,0 +1,19 @@
+class Solution:
+    def reverseParentheses(self, s: str) -> str:
+        #print(s[::-1])
+        stack=[]
+        kem=""
+        for i in range(len(s)):
+            #for j in range(len(s)+1):
+            if s[i]=="(":
+                stack.append(kem)
+                kem=""
+            elif s[i]==")":
+                kem = stack.pop() + kem[::-1]
+            else:
+                kem += str(s[i])
+                #stack.append(s[i])
+            #stack[::-1]
+                #kem="".join(stack)
+                #kem=str(kem)
+        return kem
