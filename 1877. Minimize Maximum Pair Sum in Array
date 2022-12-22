@@ -1,0 +1,17 @@
+class Solution:
+    def minPairSum(self, nums: List[int]) -> int:
+        nums.sort()
+        i=0
+        j=len(nums)-1
+        arr=[]
+        n=len(nums)
+        while i <= (n/2)-1 and j >= (n/2):
+            a = nums[i] + nums[j]
+            arr.append(a)
+            i+=1
+            j-=1
+        mx = 0
+        for x in range(len(arr)):
+            mx = max(mx,arr[x])
+        return mx
+        
