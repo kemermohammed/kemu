@@ -1,0 +1,12 @@
+def has_cycle(head):
+    cur = head
+    arr = []
+    while cur:
+        tort = head
+        eli = head
+        while tort and tort.next:
+            eli = eli.next
+            tort = tort.next.next
+            if eli == tort:
+                return 1
+        return 0
