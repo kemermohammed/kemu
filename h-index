@@ -1,0 +1,12 @@
+class Solution:
+    def hIndex(self, c: List[int]) -> int:
+        c.sort(reverse = True)
+        
+        for i,j in enumerate(c):
+            if i >= j:
+                return i
+                
+        return len(c)
+
+
+            
